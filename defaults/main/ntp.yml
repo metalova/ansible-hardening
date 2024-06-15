@@ -2,8 +2,12 @@
 manage_timesyncd: true
 
 fallback_ntp:
-  - ntp.netnod.se
-  - ntp.ubuntu.com
+  - id.pool.ntp.org
+  - asia.pool.ntp.org
+
 ntp:
-  - 2.pool.ntp.org
-  - time.nist.gov
+  - id.pool.ntp.org
+  - asia.pool.ntp.org
+  - ntp.its.ac.id
+  - ntp.tangerangkab.go.id
+  - ntp.bantenprov.go.id

@@ -6,7 +6,7 @@
 # See ssh_config(5) for more information
 
 {% if ssh_config_d.stat.exists and ssh_config_d.stat.isdir %}
-Include /etc/ssh/ssh_config.d/*.conf
+#Include /etc/ssh/ssh_config.d/*.conf
 {%+ endif +%}
 Host *
 {% if not crypto_policies_config or not set_crypto_policy %}

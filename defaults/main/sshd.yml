@@ -3,8 +3,8 @@ manage_ssh: true
 
 sshd_accept_env: LANG LC_*
 sshd_admin_net:
-  - 192.168.0.0/24
-  - 192.168.1.0/24
+  - 10.16.33.0/24
+  - 10.20.19.0/24
 sshd_allow_agent_forwarding: false
 sshd_allow_groups:
   - sudo
@@ -27,7 +27,7 @@ sshd_ciphers:
   - chacha20-poly1305@openssh.com
   - aes256-gcm@openssh.com
   - aes256-ctr
-sshd_client_alive_count_max: 1
+sshd_client_alive_count_max: 2
 sshd_client_alive_interval: 200
 sshd_compression: false
 sshd_config_d_force_clear: false
@@ -75,15 +75,15 @@ sshd_match_groups: {}
 sshd_match_local_ports: {}
 sshd_match_users: {}
 sshd_max_auth_tries: 3
-sshd_max_sessions: 3
+sshd_max_sessions: 2
 sshd_max_startups: 10:30:60
-sshd_password_authentication: false
+sshd_password_authentication: true
 sshd_permit_empty_passwords: false
 sshd_permit_root_login: false
 sshd_permit_tunnel: false
 sshd_permit_user_environment: false
 sshd_ports:
-  - 22
+  - 212
 sshd_print_last_log: true
 sshd_print_motd: false
 sshd_print_pam_motd: false
