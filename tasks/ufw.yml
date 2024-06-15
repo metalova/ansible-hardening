@@ -134,6 +134,14 @@
         direction: out
         comment: ansible managed
       loop: "{{ ufw_outgoing_traffic }}"
+    
+    - name: Allow incoming specified ports
+      community.general.ufw:
+        rule: allow
+        to_port: "{{ item | int }}"
+        direction: in
+        comment: ansible managed
+      loop: "{{ ufw_incoming_traffic }}"
 
     - name: Deny IPv4 loopback network traffic
       community.general.ufw:
