@@ -149,13 +149,13 @@
         from_ip: 127.0.0.0/8
         comment: ansible managed
 
-    - name: Deny IPv6 loopback network traffic
-      when:
-        - not disable_ipv6
-      community.general.ufw:
-        rule: deny
-        from_ip: ::1
-        comment: ansible managed
+    # - name: Deny IPv6 loopback network traffic
+    #   when:
+    #     - not disable_ipv6
+    #   community.general.ufw:
+    #     rule: deny
+    #     from_ip: ::1
+    #     comment: ansible managed
 
     - name: Allow loopback traffic in
       community.general.ufw:
