@@ -1,4 +1,3 @@
----
 - name: Add the nf_conntrack module
   become: true
   community.general.modprobe:
@@ -11,7 +10,6 @@
     path: /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal
   register: conntrackliberal
 
-# https://github.com/ansible/ansible/issues/45446
 - name: Enable nf_conntrack_tcp_be_liberal to keep connections alive
   become: true
   ansible.posix.sysctl:
@@ -65,6 +63,14 @@
     cmd: ufw status verbose
   changed_when: false
   register: ufw_status
+
+- name: Allow SSH before setting default deny
+  become: true
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    to_port: 22
+    comment: 'Allow SSH'
 
 - name: Enable UFW and set default deny
   become: true
@@ -149,13 +155,13 @@
         from_ip: 127.0.0.0/8
         comment: ansible managed
 
-    # - name: Deny IPv6 loopback network traffic
-    #   when:
-    #     - not disable_ipv6
-    #   community.general.ufw:
-    #     rule: deny
-    #     from_ip: ::1
-    #     comment: ansible managed
+    - name: Deny IPv6 loopback network traffic
+      when:
+        - not disable_ipv6
+      community.general.ufw:
+        rule: deny
+        from_ip: ::1
+        comment: ansible managed
 
     - name: Allow loopback traffic in
       community.general.ufw:
