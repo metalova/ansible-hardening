@@ -18,7 +18,7 @@ misc_modules_blocklist:
   - floppy
   - ksmbd
   - n_hdlc
-  # - net-pf-31
+  - net-pf-31
   - pcspkr
   - soundcore
   - thunderbolt
@@ -28,8 +28,8 @@ misc_modules_blocklist:
   - v4l2_common
 
 net_modules_blocklist:
-  - atm
-  - dccp
-  - sctp
-  - rds
-  - tipc
+  # - atm
+  # - dccp
+  # - sctp
+  # - rds
+  # - tipc

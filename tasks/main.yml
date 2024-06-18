@@ -42,26 +42,26 @@
     - kernel
     - sysctl
 
-# - name: Configure kernel settings
-#   ansible.builtin.import_tasks:
-#     file: kernel.yml
-#   tags:
-#     - kernel
+- name: Configure kernel settings
+  ansible.builtin.import_tasks:
+    file: kernel.yml
+  tags:
+    - kernel
 
-# - name: Disable kernel modules
-#   ansible.builtin.import_tasks:
-#     file: kernelmodules.yml
-#   tags:
-#     - kernel
+- name: Disable kernel modules
+  ansible.builtin.import_tasks:
+    file: kernelmodules.yml
+  tags:
+    - kernel
 
-# - name: Disable IPv6
-#   ansible.builtin.import_tasks:
-#     file: ipv6.yml
-#   when:
-#     - disable_ipv6
-#   tags:
-#     - ipv6
-#     - kernel
+- name: Disable IPv6
+  ansible.builtin.import_tasks:
+    file: ipv6.yml
+  when:
+    - disable_ipv6
+  tags:
+    - ipv6
+    - kernel
 
 - name: Configure USBGuard
   ansible.builtin.import_tasks:
