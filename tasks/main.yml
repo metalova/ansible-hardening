@@ -96,11 +96,11 @@
     - systemd
     - timesyncd
 
-- name: Clean fstab
-  ansible.builtin.import_tasks:
-    file: fstab.yml
-  tags:
-    - mounts
+# - name: Clean fstab
+#   ansible.builtin.import_tasks:
+#     file: fstab.yml
+#   tags:
+#     - mounts
 
 - name: Configure shm and tmp mounts
   ansible.builtin.import_tasks:
