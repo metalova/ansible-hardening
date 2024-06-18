@@ -114,17 +114,17 @@
   tags:
     - prelink
 
-- name: Configure package managers, update caches and install updates
-  ansible.builtin.import_tasks:
-    file: packagemgmt.yml
+# - name: Configure package managers, update caches and install updates
+#   ansible.builtin.import_tasks:
+#     file: packagemgmt.yml
 
-- name: Configure automatic updates
-  ansible.builtin.import_tasks:
-    file: automatic_updates.yml
-  when:
-    - automatic_updates
-  tags:
-    - automatic_updates
+# - name: Configure automatic updates
+#   ansible.builtin.import_tasks:
+#     file: automatic_updates.yml
+#   when:
+#     - automatic_updates
+#   tags:
+#     - automatic_updates
 
 - name: Configure hosts.allow and hosts.deny
   ansible.builtin.import_tasks:
