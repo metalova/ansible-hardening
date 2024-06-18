@@ -24,37 +24,37 @@
   when:
     - dev_shm.stat.exists
 
-- name: Add systemd tmp.mount
-  become: true
-  ansible.builtin.template:
-    src: "{{ tmp_mount_template }}"
-    dest: /etc/systemd/system/tmp.mount
-    backup: true
-    mode: "0644"
-    owner: root
-    group: root
+# - name: Add systemd tmp.mount
+#   become: true
+#   ansible.builtin.template:
+#     src: "{{ tmp_mount_template }}"
+#     dest: /etc/systemd/system/tmp.mount
+#     backup: true
+#     mode: "0644"
+#     owner: root
+#     group: root
 
-- name: Stat tmp.mount
-  ansible.builtin.stat:
-    path: /etc/systemd/system/tmp.mount
-  register: tmp_mount
+# - name: Stat tmp.mount
+#   ansible.builtin.stat:
+#     path: /etc/systemd/system/tmp.mount
+#   register: tmp_mount
 
-- name: Unmask and start tmp.mount
-  become: true
-  when:
-    - tmp_mount.stat.exists
-    - ansible_virtualization_type not in ["container", "docker", "podman"]
-  block:
-    - name: Unmask tmp.mount
-      become: true
-      ansible.builtin.systemd:
-        name: tmp.mount
-        masked: false
+# - name: Unmask and start tmp.mount
+#   become: true
+#   when:
+#     - tmp_mount.stat.exists
+#     - ansible_virtualization_type not in ["container", "docker", "podman"]
+#   block:
+#     - name: Unmask tmp.mount
+#       become: true
+#       ansible.builtin.systemd:
+#         name: tmp.mount
+#         masked: false
 
-    - name: Start tmp.mount
-      become: true
-      ansible.builtin.systemd:
-        name: tmp.mount
-        daemon_reload: true
-        state: started
-        enabled: true
+#     - name: Start tmp.mount
+#       become: true
+#       ansible.builtin.systemd:
+#         name: tmp.mount
+#         daemon_reload: true
+#         state: started
+#         enabled: true
