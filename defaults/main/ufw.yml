@@ -2,7 +2,6 @@
 manage_ufw: true
 
 ufw_outgoing_traffic:
-  - 22
   - 53
   - 80
   - 123
@@ -10,7 +9,6 @@ ufw_outgoing_traffic:
   - 853
 
 ufw_incoming_traffic:
-  - 22
   - 80
   - 443
 ufw_rate_limit: false
