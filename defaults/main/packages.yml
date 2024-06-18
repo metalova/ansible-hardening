@@ -8,7 +8,6 @@ packages_blocklist:
   - avahi*
   - avahi-*
   - beep
-  - git
   - pastebinit
   - popularity-contest
   - prelink
@@ -50,6 +49,7 @@ packages_debian:
   - tcpd
   - vlock
   - wamerican
+  - nano
 
 packages_redhat:
   - audispd-plugins
