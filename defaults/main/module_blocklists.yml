@@ -28,8 +28,8 @@ misc_modules_blocklist:
   - v4l2_common
 
 net_modules_blocklist:
-  # - atm
-  # - dccp
-  # - sctp
-  # - rds
-  # - tipc
+  - atm
+  - dccp
+  - sctp
+  - rds
+  - tipc
