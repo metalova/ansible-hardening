@@ -7,6 +7,8 @@ ufw_outgoing_traffic:
   - 123
   - 443
   - 853
+  - 1515
+  - 1516
 
 ufw_incoming_traffic:
   - 80
